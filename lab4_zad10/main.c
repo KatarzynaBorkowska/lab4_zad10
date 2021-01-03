@@ -1,14 +1,29 @@
-//
-//  main.c
-//  lab4_zad10
-//
-//  Created by Kasia on 17/12/2020.
-//
-
+//zad 10
 #include <stdio.h>
+#include "modul_wejscia_wyjscia.h"
+#include "modul_dzialania.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+int main(){
+    float x, y;
+    char z;
+    wprowadz_dane(&x,&z,&y);
+    switch (z) {
+        case '+':
+            wypisz(x, z, y, dodaj(x, y));
+            break;
+        case '-':
+            wypisz(x, z, y, odejmnij(x, y));
+            break;
+        case '*':
+            wypisz(x, z, y, pomnoz(x, y));
+            break;
+        case '/':
+            wypisz(x, z, y,y!=0? podziel(x, y) : blad());
+            break;
+            
+        default:
+            printf("Nie ma takiego znaku.\n");
+            break;
+    }
     return 0;
 }
